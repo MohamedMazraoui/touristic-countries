@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body{
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+/* Custom Classes */
+.row{
+  display: flex;
+}
+.col {
+  flex: 1;
+  height: 100%;
+}
+
+.-mx-2{
+  margin: 0 -10px !important;
+}
+.mb-2{
+  margin-bottom: 10px !important;
+}
+.mt-2{
+  margin-top: 10px !important;
+}
+.p-2{
+  padding: 10px !important;
+}
+.p-4{
+  padding: 20px !important;
+}
+.py-4{
+  padding: 20px !important;
+}
+.px-2{
+  padding: 0 10px !important;
+}
+
+/* XS */
+@media only screen and (max-width: 600px) {
+  .container{
+    margin: auto;
+    max-width: 100%;
+    padding: 0px 10px;
+  }
+}
+/* SM */
+@media only screen and (min-width: 600px) {
+  .container{
+    margin: auto;
+    max-width: 375px;
+  }
+}
+/* MD */
+@media only screen and (min-width: 768px) {
+  .container{
+    margin: auto;
+    max-width: 768px;
+  }
+}
+/* LG */
+@media only screen and (min-width: 992px) {
+  .container{
+    margin: auto;
+    max-width: 1024px;
+  }
+}
+/* XL */
+@media only screen and (min-width: 1200px) {
+  .container{
+    margin: auto;
+    max-width: 1280px;
+  }
+}
