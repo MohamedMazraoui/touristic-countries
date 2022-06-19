@@ -178,93 +178,93 @@
           try{
             const res = await axios('https://mohamedmazraoui.github.io/touristic-countries/countries.json');
             console.log("res: ", res);
-            res.data = [
-              {
-                "country_name": "Italy",
-                "capital": "Venice",
-                "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-                "img": "/images/italy/img6.jpeg",
-                "images": [
-                  "/images/italy/img1.jpeg",
-                  "/images/italy/img2.jpeg",
-                  "/images/italy/img3.jpeg",
-                  "/images/italy/img4.jpeg",
-                  "/images/italy/img5.jpeg",
-                  "/images/italy/img6.jpeg"
-                ]
-              },
-              {
-                "country_name": "Germany",
-                "capital": "Berlin",
-                "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-                "img": "/images/italy/img2.jpeg",
-                "images": [
-                  "/images/germany/img1.jpeg",
-                  "/images/germany/img2.jpeg",
-                  "/images/germany/img3.jpeg",
-                  "/images/germany/img4.jpeg",
-                  "/images/germany/img5.jpeg",
-                  "/images/germany/img6.jpeg"
+            // res.data = [
+            //   {
+            //     "country_name": "Italy",
+            //     "capital": "Venice",
+            //     "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+            //     "img": "/images/italy/img6.jpeg",
+            //     "images": [
+            //       "/images/italy/img1.jpeg",
+            //       "/images/italy/img2.jpeg",
+            //       "/images/italy/img3.jpeg",
+            //       "/images/italy/img4.jpeg",
+            //       "/images/italy/img5.jpeg",
+            //       "/images/italy/img6.jpeg"
+            //     ]
+            //   },
+            //   {
+            //     "country_name": "Germany",
+            //     "capital": "Berlin",
+            //     "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+            //     "img": "/images/italy/img2.jpeg",
+            //     "images": [
+            //       "/images/germany/img1.jpeg",
+            //       "/images/germany/img2.jpeg",
+            //       "/images/germany/img3.jpeg",
+            //       "/images/germany/img4.jpeg",
+            //       "/images/germany/img5.jpeg",
+            //       "/images/germany/img6.jpeg"
 
-                ]
-              },
-              {
-                "country_name": "Spain",
-                "capital": "Barcelona",
-                "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-                "img": "/images/spain/img1.jpeg",
-                "images": [
-                  "/images/spain/img1.jpeg",
-                  "/images/spain/img2.jpeg",
-                  "/images/spain/img3.jpeg",
-                  "/images/spain/img4.jpeg",
-                  "/images/spain/img5.jpeg",
-                  "/images/spain/img6.jpeg"
-                ]
-              },
-              {
-                "country_name": "France",
-                "capital": "Paris",
-                "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-                "img": "/images/france/img5.jpeg",
-                "images": [
-                  "/images/france/img1.jpeg",
-                  "/images/france/img2.jpeg",
-                  "/images/france/img3.jpeg",
-                  "/images/france/img4.jpeg",
-                  "/images/france/img5.jpeg",
-                  "/images/france/img6.jpeg"
-                ]
-              },
-              {
-                "country_name": "Netherlands",
-                "capital": "Amsterdam",
-                "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-                "img": "/images/netherland/img2.jpeg",
-                "images": [
-                  "/images/netherland/img1.jpeg",
-                  "/images/netherland/img2.jpeg",
-                  "/images/netherland/img3.jpeg",
-                  "/images/netherland/img4.jpeg",
-                  "/images/netherland/img5.jpeg",
-                  "/images/netherland/img6.jpeg"
-                ]
-              },
-              {
-                "country_name": "United Kingdon",
-                "capital": "London",
-                "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-                "img": "/images/united_kingdom/img1.jpeg",
-                "images": [
-                  "/images/united_kingdom/img1.jpeg",
-                  "/images/united_kingdom/img2.jpeg",
-                  "/images/united_kingdom/img3.jpeg",
-                  "/images/united_kingdom/img4.jpeg",
-                  "/images/united_kingdom/img5.jpeg",
-                  "/images/united_kingdom/img6.jpeg"
-                ]
-              },
-            ];
+            //     ]
+            //   },
+            //   {
+            //     "country_name": "Spain",
+            //     "capital": "Barcelona",
+            //     "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+            //     "img": "/images/spain/img1.jpeg",
+            //     "images": [
+            //       "/images/spain/img1.jpeg",
+            //       "/images/spain/img2.jpeg",
+            //       "/images/spain/img3.jpeg",
+            //       "/images/spain/img4.jpeg",
+            //       "/images/spain/img5.jpeg",
+            //       "/images/spain/img6.jpeg"
+            //     ]
+            //   },
+            //   {
+            //     "country_name": "France",
+            //     "capital": "Paris",
+            //     "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+            //     "img": "/images/france/img5.jpeg",
+            //     "images": [
+            //       "/images/france/img1.jpeg",
+            //       "/images/france/img2.jpeg",
+            //       "/images/france/img3.jpeg",
+            //       "/images/france/img4.jpeg",
+            //       "/images/france/img5.jpeg",
+            //       "/images/france/img6.jpeg"
+            //     ]
+            //   },
+            //   {
+            //     "country_name": "Netherlands",
+            //     "capital": "Amsterdam",
+            //     "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+            //     "img": "/images/netherland/img2.jpeg",
+            //     "images": [
+            //       "/images/netherland/img1.jpeg",
+            //       "/images/netherland/img2.jpeg",
+            //       "/images/netherland/img3.jpeg",
+            //       "/images/netherland/img4.jpeg",
+            //       "/images/netherland/img5.jpeg",
+            //       "/images/netherland/img6.jpeg"
+            //     ]
+            //   },
+            //   {
+            //     "country_name": "United Kingdon",
+            //     "capital": "London",
+            //     "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+            //     "img": "/images/united_kingdom/img1.jpeg",
+            //     "images": [
+            //       "/images/united_kingdom/img1.jpeg",
+            //       "/images/united_kingdom/img2.jpeg",
+            //       "/images/united_kingdom/img3.jpeg",
+            //       "/images/united_kingdom/img4.jpeg",
+            //       "/images/united_kingdom/img5.jpeg",
+            //       "/images/united_kingdom/img6.jpeg"
+            //     ]
+            //   },
+            // ];
             return res
           }catch(error){
             console.log("error: ", error);
@@ -297,7 +297,6 @@
             calcTreeNumber++;
 
           })
-          console.log("this.countries: ", this.countries);
         }
 
       } catch (error) {
