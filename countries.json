@@ -2,7 +2,7 @@
   {
     "country_name": "Italy",
     "capital": "Venice",
-    "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+    "description": "Venice, the capital of northern Italy’s Veneto region, is built on more than 100 small islands in a lagoon in the Adriatic Sea.",
     "img": "/images/italy/img6.jpeg",
     "images": [
       "/images/italy/img1.jpeg",
@@ -16,7 +16,7 @@
   {
     "country_name": "Germany",
     "capital": "Berlin",
-    "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+    "description": "Berlin, Germany’s capital, dates to the 13th century. Reminders of the city's turbulent 20th-century history include its Holocaust memorial.",
     "img": "/images/italy/img2.jpeg",
     "images": [
       "/images/germany/img1.jpeg",
@@ -31,7 +31,7 @@
   {
     "country_name": "Spain",
     "capital": "Barcelona",
-    "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+    "description": "Barcelona, the cosmopolitan capital of Spain’s Catalonia region, is known for its art and architecture.",
     "img": "/images/spain/img1.jpeg",
     "images": [
       "/images/spain/img1.jpeg",
@@ -45,7 +45,7 @@
   {
     "country_name": "France",
     "capital": "Paris",
-    "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+    "description": "Also known as the Latin Quarter, the 5th arrondissement is home to the Sorbonne university and student-filled cafes.",
     "img": "/images/france/img5.jpeg",
     "images": [
       "/images/france/img1.jpeg",
@@ -59,7 +59,7 @@
   {
     "country_name": "Netherlands",
     "capital": "Amsterdam",
-    "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+    "description": "Amsterdam is the Netherlands’ capital, known for its artistic heritage, elaborate canal system and narrow houses with gabled facades.",
     "img": "/images/netherland/img2.jpeg",
     "images": [
       "/images/netherland/img1.jpeg",
@@ -73,7 +73,7 @@
   {
     "country_name": "United Kingdon",
     "capital": "London",
-    "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+    "description": "London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times.",
     "img": "/images/united_kingdom/img1.jpeg",
     "images": [
       "/images/united_kingdom/img1.jpeg",
@@ -83,5 +83,5 @@
       "/images/united_kingdom/img5.jpeg",
       "/images/united_kingdom/img6.jpeg"
     ]
-  },
+  }
 ]
