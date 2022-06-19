@@ -21,6 +21,12 @@ body{
   height: 100%;
 }
 
+.text-center{
+  text-align: center;
+}
+.error{
+  color: #eb6060;
+}
 .w-full{
   width: 100% !important;
 }
