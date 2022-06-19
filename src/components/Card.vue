@@ -11,7 +11,7 @@
       <div class="card-back">
         <p class="country">{{currentCountry.country_name}}</p>
         <h2 class="city">{{currentCountry.capital}}</h2>
-        <p class="description">V{{currentCountry.description}}</p>
+        <p class="description">{{currentCountry.description}}</p>
 
         <!-- @Click of this button show Modal containe some pictures of selected country -->
         <button @click.stop="exploreMore()" class="button mt-2">Explore More</button>
