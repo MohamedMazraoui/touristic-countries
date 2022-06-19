@@ -57,6 +57,7 @@ export default {
 
       // when user click button explore, we execute this method to show the modal
       exploreMore(){
+        console.log("click Explore");
         this.openExplore = true;
       },
 

@@ -56,6 +56,8 @@ export default {
   background-color: #000004c2;
   z-index: 3;
   display: flex;
+  top: 0px;
+  left: 0px;
 }
 
 /* Modal Style */
