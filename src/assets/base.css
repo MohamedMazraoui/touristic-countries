@@ -8,9 +8,14 @@ body{
 /* Custom Classes */
 .row{
   display: flex;
+  flex-flow: row wrap;
 }
 .col {
   flex: 1;
+  height: 100%;
+}
+.col-2 {
+  flex: 2;
   height: 100%;
 }
 
@@ -48,7 +53,8 @@ body{
 @media only screen and (min-width: 600px) {
   .container{
     margin: auto;
-    max-width: 375px;
+    max-width: 100%;
+    padding: 0px 10px;
   }
 }
 /* MD */

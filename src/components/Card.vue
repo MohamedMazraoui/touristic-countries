@@ -1,27 +1,72 @@
 <template>
-  <div class="card">
-    <div class="card-content">
-      <p class="country">Front-end</p>
-      <h2 class="city">Barcelona</h2>
-    </div>
-    <div class="card-back">
-      <p class="country">Front-end</p>
-      <h2 class="city">Barcelona</h2>
-      <p class="description">Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.</p>
-      <button class="button mt-2">Explore More</button>
+  <div class="card-container">
+  <!-- :style='"background: linear-gradient(0deg, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url('"+currentCountry.img+"')"' -->
+    <div class="card" :style="{ background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url(/images/' + currentCountry.country_name.toLowerCase() + '/img1.jpeg)',backgroundSize:'cover',backgroundPosition:'center' }" >
+      <div class="card-content">
+        <p class="country">{{currentCountry.country_name}}</p>
+        <h2 class="city">{{currentCountry.capital}}</h2>
+      </div>
+      <div class="card-back">
+        <p class="country">{{currentCountry.country_name}}</p>
+        <h2 class="city">{{currentCountry.capital}}</h2>
+        <p class="description">V{{currentCountry.description}}</p>
+        <button @click.stop="exploreMore()" class="button mt-2">Explore More</button>
+        <teleport to="#app">
+          <ModalExplore v-if="openExplore" @close-modal="closeModal"></ModalExplore>
+        </teleport>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 
+import ModalExplore from "./ModalExplore.vue"
+
+export default {
+
+
+    name: 'Card',
+    components: {
+      ModalExplore
+    },
+    props: {
+      currentCountry: {
+        type: Object, default: null
+      }
+    },
+    data(){
+      return{
+        openExplore: false
+
+      };
+    },
+
+    methods:{
+
+      exploreMore(){
+        this.openExplore = true;
+      },
+      closeModal(data){
+        console.log("data: ", data);
+        if (data) {
+          this.openExplore = false;
+        }
+      }
+    },
+
+    mounted(){
+
+
+    }
+  }
 
 </script>
 
 <style scoped >
 
+
 .card{
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url("https://picsum.photos/seed/picsum/1000/1000");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -32,17 +77,17 @@
   color: #FFF;
   padding: 50px 20px;
   transform: rotateY(0deg);
-  transition: transform 0.8s;
+  transition: transform .8s;
   transform-style: preserve-3d;
   cursor: pointer;
 }
-.card:hover{
+.card-container:hover .card{
   transform: rotateY(180deg);
 }
-.card:hover .card-content{
+.card-container:hover .card .card-content{
   display: none;
 }
-.card:hover .card-back{
+.card-container:hover .card .card-back{
   display: block;
 }
 
@@ -105,4 +150,5 @@
 .card .card-back .button:hover{
   background-color: rgba(0,0,1,0.2);
 }
+
 </style>
