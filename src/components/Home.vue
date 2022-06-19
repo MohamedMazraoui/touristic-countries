@@ -1,127 +1,161 @@
 <template>
   <div class="py-4 container">
 
-    <HeaderCard class="mb-2" />
-    <div class="row -mx-2">
-      <div v-for="(country, indexCountry) in countries" :key="indexCountry" class="col p-2">
-        <Card :currentCountry="country" />
+    <div v-if="loadingCountries" class="container loading-skeleton">
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <img src="//placekitten.com/300/200" class="card-img-top" alt="...">
+          </div>
+        </div>
+        <div class="col">
+          <div class="card">
+            <img src="//placebear.com/300/200" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- <div class="col p-2">
-        <Card />
+    </div>
+
+    <div v-else>
+      <!-- Header Card -->
+      <HeaderCard class="mb-2" />
+
+      <!-- Loop On Each Group Card's -->
+      <div v-for="(countryGroup, indexGroup) in countries" :key="indexGroup"  class="row -mx-2">
+
+        <!-- Card Touristic country with a small condition set class "col-2" in {First Card in the First Group and Last Card in second Group} -->
+        <div v-for="(country, indexCountry) in countryGroup" :key="indexCountry" :class="['p-2', ((indexGroup == 0 && indexCountry == 0) || (indexGroup == 1 && indexCountry == countryGroup.length-1)) ? 'col-2' : 'col']">
+
+          <!-- Component Card with prop contain Data Country -->
+          <Card :currentCountry="country" />
+        </div>
       </div>
-      <div class="col-2 p-2">
-        <Card />
-      </div> -->
     </div>
   </div>
 </template>
 
 <script>
 
+  // Import Header Card Component
   import HeaderCard from "./HeaderCard.vue"
+
+  // Import Card Component
   import Card from "./Card.vue"
+
+  // Import Axios to get Data
   import axios from 'axios';
 
 
   export default {
 
-
+    // Component Name
     name: 'Home',
+
     components: {
       HeaderCard,
       Card
     },
+
     data(){
       return{
 
-        loadingCountries: false,
-        countries: [
-          {
-            "country_name": "Italy",
-            "capital": "Venice",
-            "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-            "img": "https://postimg.cc/xkCBtWKH",
-            "images": [
-              "https://postimg.cc/3ycV6nBq",
-              "https://postimg.cc/Yv8JNpmM",
-              "https://postimg.cc/F7btRbrf",
-              "https://postimg.cc/2VNRr9DR",
-              "https://postimg.cc/xX9wbk86",
-              "https://postimg.cc/xkCBtWKH"
-            ]
-          },
-          {
-            "country_name": "Germany",
-            "capital": "Berlin",
-            "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-            "img": "https://postimg.cc/CRFKLxgg",
-            "images": [
-              "https://postimg.cc/zbRzPLnn",
-              "https://postimg.cc/CRFKLxgg",
-              "https://postimg.cc/7CRPV1TH",
-              "https://postimg.cc/3058MKBz",
-              "https://postimg.cc/XZq7d1q1",
-              "https://postimg.cc/XrQYZ6jy"
+        loadingCountries: true,
+        countries: {
+          0: [
+            {
+              "country_name": "Italy",
+              "capital": "Venice",
+              "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+              "img": "/images/italy/img6.jpeg",
+              "images": [
+                "/images/italy/img1.jpeg",
+                "/images/italy/img2.jpeg",
+                "/images/italy/img3.jpeg",
+                "/images/italy/img4.jpeg",
+                "/images/italy/img5.jpeg",
+                "/images/italy/img6.jpeg"
+              ]
+            },
+            {
+              "country_name": "Germany",
+              "capital": "Berlin",
+              "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+              "img": "/images/italy/img2.jpeg",
+              "images": [
+                "/images/germany/img1.jpeg",
+                "/images/germany/img2.jpeg",
+                "/images/germany/img3.jpeg",
+                "/images/germany/img4.jpeg",
+                "/images/germany/img5.jpeg",
+                "/images/germany/img6.jpeg"
 
-            ]
-          },
-          {
-            "country_name": "Spain",
-            "capital": "Barcelona",
-            "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-            "img": "https://postimg.cc/rz1c02gF",
-            "images": [
-              "https://postimg.cc/rz1c02gF",
-              "https://postimg.cc/hfKnVZ38",
-              "https://postimg.cc/cvbNyx1T",
-              "https://postimg.cc/zHF19T3R",
-              "https://postimg.cc/hXjq5znf",
-              "https://postimg.cc/xcg25GWw"
-            ]
-          },
-          {
-            "country_name": "France",
-            "capital": "Paris",
-            "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-            "img": "https://postimg.cc/njvhdb1T",
-            "images": [
-              "https://postimg.cc/0Kn2sYFw",
-              "https://postimg.cc/XGMvc79p",
-              "https://postimg.cc/1Vs52CCS",
-              "https://postimg.cc/mhsYTTKL",
-              "https://postimg.cc/njvhdb1T",
-              "https://postimg.cc/ThJrwZXr"
-            ]
-          },
-          {
-            "country_name": "Netherlands",
-            "capital": "Amsterdam",
-            "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-            "img": "https://postimg.cc/HryCmGJg",
-            "images": [
-              "https://postimg.cc/grgpqH9f",
-              "https://postimg.cc/HryCmGJg",
-              "https://postimg.cc/H8kg1VMZ",
-              "https://postimg.cc/NLsYHPn6",
-              "https://postimg.cc/tYfH8R4k",
-              "https://postimg.cc/gnrWMLmr"
-            ]
-          },
-          {
-            "country_name": "United Kingdon",
-            "capital": "London",
-            "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
-            "img": "https://postimg.cc/Fd2j2Jwm",
-            "images": [
-              "https://postimg.cc/Fd2j2Jwm",
-              "https://postimg.cc/1g70rdH8",
-              "https://postimg.cc/75VnfhJM",
-              "https://postimg.cc/LYqtCVCN",
-              "https://postimg.cc/JsmQrZ0z",
-              "https://postimg.cc/f3RjXsx4"
-            ]
-          },
-        ]
+              ]
+            },
+            {
+              "country_name": "Spain",
+              "capital": "Barcelona",
+              "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+              "img": "/images/spain/img1.jpeg",
+              "images": [
+                "/images/spain/img1.jpeg",
+                "/images/spain/img2.jpeg",
+                "/images/spain/img3.jpeg",
+                "/images/spain/img4.jpeg",
+                "/images/spain/img5.jpeg",
+                "/images/spain/img6.jpeg"
+              ]
+            },
+          ],
+          1: [
+            {
+              "country_name": "France",
+              "capital": "Paris",
+              "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+              "img": "/images/france/img5.jpeg",
+              "images": [
+                "/images/france/img1.jpeg",
+                "/images/france/img2.jpeg",
+                "/images/france/img3.jpeg",
+                "/images/france/img4.jpeg",
+                "/images/france/img5.jpeg",
+                "/images/france/img6.jpeg"
+              ]
+            },
+            {
+              "country_name": "Netherlands",
+              "capital": "Amsterdam",
+              "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+              "img": "/images/netherland/img2.jpeg",
+              "images": [
+                "/images/netherland/img1.jpeg",
+                "/images/netherland/img2.jpeg",
+                "/images/netherland/img3.jpeg",
+                "/images/netherland/img4.jpeg",
+                "/images/netherland/img5.jpeg",
+                "/images/netherland/img6.jpeg"
+              ]
+            },
+            {
+              "country_name": "United Kingdon",
+              "capital": "London",
+              "description": "Valtech est une agence digitale axée sur la transformation des entreprises et nourrie par l'innovation. Nous permettons à nos clients.",
+              "img": "/images/united_kingdom/img1.jpeg",
+              "images": [
+                "/images/united_kingdom/img1.jpeg",
+                "/images/united_kingdom/img2.jpeg",
+                "/images/united_kingdom/img3.jpeg",
+                "/images/united_kingdom/img4.jpeg",
+                "/images/united_kingdom/img5.jpeg",
+                "/images/united_kingdom/img6.jpeg"
+              ]
+            },
+          ],
+        }
 
       };
     },
@@ -173,5 +207,33 @@
 
 <style scoped>
 
+%loading-skeleton {
+  color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #eee;
+  border-color: #eee;
 
+  &::placeholder {
+    color: transparent;
+  }
+}
+%loading-skeleton::placeholder {
+  color: transparent;
+}
+@keyframes loading-skeleton {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.loading-skeleton {
+  pointer-events: none;
+  animation: loading-skeleton 1s infinite alternate;
+}
+.loading-skeleton img {
+  filter: grayscale(100) contrast(0%) brightness(1.8);
+}
 </style>

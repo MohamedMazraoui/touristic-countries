@@ -3,23 +3,10 @@
     <div class="modal" v-clickaway="closeModal">
       <div class="modal-content">
         <div class="row -mx-2">
-          <div class="col p-2">
-            <img class="image" src="https://picsum.photos/seed/picsum/1000/1000" />
-          </div>
-          <div class="col p-2">
-            <img class="image" src="https://picsum.photos/seed/picsum/1000/1000" />
-          </div>
-          <div class="col p-2">
-            <img class="image" src="https://picsum.photos/seed/picsum/1000/1000" />
-          </div>
-          <div class="col p-2">
-            <img class="image" src="https://picsum.photos/seed/picsum/1000/1000" />
-          </div>
-          <div class="col p-2">
-            <img class="image" src="https://picsum.photos/seed/picsum/1000/1000" />
-          </div>
-          <div class="col p-2">
-            <img class="image" src="https://picsum.photos/seed/picsum/1000/1000" />
+          <div class="col p-2" v-for="(image, indexImage) in images" :key="indexImage" >
+            <div class="image" :style="{ background: 'url(' + image + ')',backgroundSize:'cover',backgroundPosition:'center' }">
+              <img class="w-full" src="/images/1px.png" />
+            </div>
           </div>
         </div>
       </div>
@@ -35,8 +22,16 @@ export default {
 
     name: 'ModalExplore',
 
+    props:{
+      images:{
+        type: Array,
+        default: null
+      }
+    },
+
     methods:{
 
+      // when user clickaway of the modal, we execut this method to emit an event to close the modal
       closeModal(){
         this.$emit('close-modal', true);
       }
@@ -53,6 +48,7 @@ export default {
 
 <style scoped >
 
+/* background to hide interface beyond the modal */
 .bg-modal{
   position: fixed;
   width: 100vw;
@@ -61,6 +57,8 @@ export default {
   z-index: 3;
   display: flex;
 }
+
+/* Modal Style */
 .bg-modal .modal{
   width: 90%;
   max-width: 1000px;
@@ -76,7 +74,6 @@ export default {
   overflow-y: auto;
 }
 .bg-modal .modal .modal-content .image{
-  width: 100%;
   min-width: 250px;
 }
 </style>

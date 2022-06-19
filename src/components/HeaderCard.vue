@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" :style="{ background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url(/images/morocco.webp)',backgroundSize:'cover',backgroundPosition:'center' }">
     <div class="card-content">
       <p class="country">Front-end</p>
       <h2 class="city">Valtech_</h2>
@@ -15,12 +15,9 @@
 
 <style scoped >
 
+/* Card Style */
 .card{
 
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url("https://picsum.photos/seed/picsum/1000/1000");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 10px;
   height: 100%;
   display: flex;

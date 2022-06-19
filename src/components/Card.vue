@@ -1,18 +1,24 @@
 <template>
   <div class="card-container">
-  <!-- :style='"background: linear-gradient(0deg, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url('"+currentCountry.img+"')"' -->
-    <div class="card" :style="{ background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url(/images/' + currentCountry.country_name.toLowerCase() + '/img1.jpeg)',backgroundSize:'cover',backgroundPosition:'center' }" >
+
+    <div class="card" :style="{ background: 'linear-gradient(0deg, rgba(0, 0, 0, 0.5),  rgba(0, 0, 0, 0.5)), url(' + currentCountry.img + ')',backgroundSize:'cover',backgroundPosition:'center' }" >
+      <!-- Front Card -->
       <div class="card-content">
         <p class="country">{{currentCountry.country_name}}</p>
         <h2 class="city">{{currentCountry.capital}}</h2>
       </div>
+       <!-- Back Card -->
       <div class="card-back">
         <p class="country">{{currentCountry.country_name}}</p>
         <h2 class="city">{{currentCountry.capital}}</h2>
         <p class="description">V{{currentCountry.description}}</p>
+
+        <!-- @Click of this button show Modal containe some pictures of selected country -->
         <button @click.stop="exploreMore()" class="button mt-2">Explore More</button>
+
+        <!-- Modal Component, I use teleport (new vue3 feature) -->
         <teleport to="#app">
-          <ModalExplore v-if="openExplore" @close-modal="closeModal"></ModalExplore>
+          <ModalExplore v-if="openExplore" :images="currentCountry.images" @close-modal="closeModal"></ModalExplore>
         </teleport>
       </div>
     </div>
@@ -21,15 +27,19 @@
 
 <script>
 
+// Import Modal Component
 import ModalExplore from "./ModalExplore.vue"
 
 export default {
 
 
     name: 'Card',
+
     components: {
       ModalExplore
     },
+
+    // Props we recieve from parent components
     props: {
       currentCountry: {
         type: Object, default: null
@@ -37,6 +47,7 @@ export default {
     },
     data(){
       return{
+        // variable to set the status of the modal (true or false)
         openExplore: false
 
       };
@@ -44,20 +55,17 @@ export default {
 
     methods:{
 
+      // when user click button explore, we execute this method to show the modal
       exploreMore(){
         this.openExplore = true;
       },
+
+      // method to close the modal
       closeModal(data){
-        console.log("data: ", data);
         if (data) {
           this.openExplore = false;
         }
       }
-    },
-
-    mounted(){
-
-
     }
   }
 
@@ -65,11 +73,8 @@ export default {
 
 <style scoped >
 
-
+ /* card Style */
 .card{
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 10px;
   height: 100%;
   min-height: 350px;
@@ -81,6 +86,7 @@ export default {
   transform-style: preserve-3d;
   cursor: pointer;
 }
+/* On Hover Container Card Rotate the Card and show the back of the Card */
 .card-container:hover .card{
   transform: rotateY(180deg);
 }
@@ -91,6 +97,7 @@ export default {
   display: block;
 }
 
+/* Title, Texts and Button styles  */
 .card .card-content{
   margin: auto;
   text-align: center;
